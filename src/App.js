@@ -1,12 +1,15 @@
-import React from 'react';
-
-const App = props => {
+import React from "react";
+import Header from "./components/Header";
+import Input from "./components/Input";
+import Feedback from "./components/Feedback";
+const App = (props) => {
   return (
     <div>
-      <h1>HI</h1>
+      <Header />
+      <Input />
+      <Feedback />
     </div>
   );
 };
-
 
 export default App;
