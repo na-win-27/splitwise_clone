@@ -7,7 +7,7 @@ import "./App.css";
 
 const App = () => {
   return (
-    <div>
+    <div className="tot">
       <Header />
       <div className="flex-container">
         <Input />

@@ -1,12 +1,8 @@
 const initialState = {
   allItems: [],
   totalPrice: 0,
-  totalMembers: 3,
-  allMembers: [
-    { name: "navin", cost: 0 },
-    { name: "RSN", cost: 0 },
-    { name: "mani", cost: 0 },
-  ],
+  totalMembers: 1,
+  allMembers: [{ name: "navin", cost: 0 }],
 };
 
 export default function (state = initialState, action) {
