@@ -1,5 +1,6 @@
 export default (allmembers, totalMembers, totalPrice) => {
   let idealPrice = totalPrice / totalMembers;
+  console.log(idealPrice);
   let idealMem = allmembers.map((item) => {
     return {
       name: item.name,
@@ -11,7 +12,7 @@ export default (allmembers, totalMembers, totalPrice) => {
   });
   let cnt = 0;
   let graph = new Map();
-  while (a.length > 0 && totalPrice > 0) {
+  while (a.length > 1 && totalPrice > 0) {
     let high = a[0];
     let low = a[a.length - 1];
     let debit = low.cost;

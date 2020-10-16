@@ -30,7 +30,7 @@ const Solution = (props) => {
             "  pays  " +
             transition.to +
             "  an amount of  " +
-            transition.cost}
+            transition.cost.toFixed(1)}
         </CardContent>
       </Card>
     ));

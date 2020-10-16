@@ -43,6 +43,7 @@ const Input = (props) => {
       <form className={classes.root} noValidate autoComplete="off">
         <div className="flex-col">
           <TextField
+            className="mb"
             id="roomate"
             label="Name"
             variant="outlined"
@@ -52,7 +53,7 @@ const Input = (props) => {
             }}
           />
           <Button
-            className="btn"
+            className="mb"
             type="submit"
             variant="contained"
             color="primary"

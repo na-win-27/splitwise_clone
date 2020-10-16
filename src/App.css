@@ -29,3 +29,11 @@
   flex-direction: column;
   justify-content: flex-start;
 }
+
+.mb {
+  padding: 20px;
+}
+
+.mt {
+  margin-top: 10px;
+}
