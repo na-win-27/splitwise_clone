@@ -1,0 +1,19 @@
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: lightgray;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.head {
+  margin: 20px;
+}
+
+.list {
+  margin-bottom: 15px;
+}

@@ -23,6 +23,10 @@ const Input = (props) => {
     props.addMember({ name: newMember });
   };
 
+  const menuList = props.allMembers.map((member) => (
+    <MenuItem value={member.name}>{member.name}</MenuItem>
+  ));
+
   const handleAddItem = (event) => {
     event.preventDefault();
     props.addItem({ item: item, member: member, price: parseInt(price) });
@@ -34,73 +38,85 @@ const Input = (props) => {
   const [member, editMember] = useState("");
   const [item, editItem] = useState("");
   return (
-    <div>
-      <h2>ADD NEW ROOMATE</h2>
+    <div className="flex-col">
+      <h2 className="head">Add New Roomate</h2>
       <form className={classes.root}>
-        <TextField
-          id="roomate"
-          label="Name"
-          variant="outlined"
-          value={newMember}
-          onChange={(e) => {
-            editNewMember(e.target.value);
-          }}
-        />
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          onClick={handleAddMember}
-        >
-          ADD MEMBER
-        </Button>
-      </form>
-      <h2>ADD NEW TRANSACTION</h2>
-      <form className={classes.root} noValidate autoComplete="off">
-        <TextField
-          id="item"
-          label="Item Name"
-          variant="outlined"
-          value={item}
-          onChange={(e) => {
-            editItem(e.target.value);
-          }}
-        />
-        <FormControl variant="outlined">
-          <InputLabel id="person">Bought By</InputLabel>
-          <Select
-            labelId="person"
-            id="person"
-            value={member}
+        <div className="flex-col">
+          <TextField
+            id="roomate"
+            label="Name"
+            variant="outlined"
+            value={newMember}
             onChange={(e) => {
-              editMember(e.target.value);
+              editNewMember(e.target.value);
             }}
+          />
+          <Button
+            className="btn"
+            type="submit"
+            variant="contained"
+            color="primary"
+            onClick={handleAddMember}
           >
-            <MenuItem value="mani">MANI</MenuItem>
-            <MenuItem value="navin">NAVIN</MenuItem>
-            <MenuItem value="RSN">RSNavin</MenuItem>
-          </Select>
-        </FormControl>
-        <TextField
-          id="Price"
-          label="Price"
-          variant="outlined"
-          value={price}
-          onChange={(e) => {
-            editPrice(e.target.value);
-          }}
-        />
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          onClick={handleAddItem}
-        >
-          ADD ITEM
-        </Button>
+            ADD MEMBER
+          </Button>
+        </div>
+      </form>
+      <h2 className="head">Add New Transaction</h2>
+      <form className={classes.root} noValidate autoComplete="off">
+        <div className="flex-col">
+          <TextField
+            id="item"
+            label="Item Name"
+            variant="outlined"
+            value={item}
+            onChange={(e) => {
+              editItem(e.target.value);
+            }}
+          />
+          <FormControl variant="outlined">
+            <InputLabel variant="filled" id="person">
+              Bought By
+            </InputLabel>
+            <Select
+              labelId="person"
+              id="person"
+              value={member}
+              onChange={(e) => {
+                editMember(e.target.value);
+              }}
+            >
+              {menuList}
+            </Select>
+          </FormControl>
+          <TextField
+            id="Price"
+            label=""
+            variant="outlined"
+            value={price}
+            onChange={(e) => {
+              editPrice(e.target.value);
+            }}
+          />
+          <Button
+            className="btn  "
+            type="submit"
+            variant="contained"
+            color="primary"
+            onClick={handleAddItem}
+          >
+            ADD ITEM
+          </Button>
+        </div>
       </form>
     </div>
   );
+};
+
+const mapStateToProps = (state) => {
+  return {
+    allMembers: state.allMembers,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -114,4 +130,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Input);
+export default connect(mapStateToProps, mapDispatchToProps)(Input);

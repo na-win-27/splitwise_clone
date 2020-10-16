@@ -2,12 +2,18 @@ import React from "react";
 import Header from "./components/Header";
 import Input from "./components/Input";
 import Feedback from "./components/Feedback";
-const App = (props) => {
+import Solution from "./components/Solution";
+import "./App.css";
+
+const App = () => {
   return (
     <div>
       <Header />
-      <Input />
-      <Feedback />
+      <div className="flex-container">
+        <Input />
+        <Feedback />
+        <Solution />
+      </div>
     </div>
   );
 };
