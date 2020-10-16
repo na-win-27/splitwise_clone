@@ -26,6 +26,7 @@ export default function (state = initialState, action) {
           allMembers: [...state.allMembers],
         };
       }
+      break;
     }
     case "ADD_MEMBER": {
       const { name } = action.payload;
